@@ -1,0 +1,93 @@
+﻿@{
+    Layout = null;
+}
+
+<h3>Angular Samples <span class="plus" ng-click="toggleText(0)" title="Toggle help text">[&nbsp;+&nbsp;]</span></h3> 
+<div class="smallText" ng-show="getShowText(0)">
+    All samples can be reviewed in the following code-behind files:<br />
+    <ul>
+        <li>/Views/Home/Samples.cshtml</li>
+        <li>/Scripts/app/controllers.js</li>
+        <li>/Scripts/app/directives.js</li>
+        <li>/Scripts/app/filters.js</li>
+        <li>/Scripts/app/services.js</li>
+    </ul>
+</div>
+<h4>Sample 1: Simple double binding <span class="plus" ng-click="toggleText(1)" title="Toggle help text">[&nbsp;+&nbsp;]</span></h4>
+<div class="smallText" ng-show="getShowText(1)">
+    Multiple items on a given page can be bound to the same element in a controller's scope. Changes render automatically.<br />
+    In the example below, we are binding the <span>pageLiterals.title</span> item to both common text and an input field.<br /><br />
+    To bind output to an item in the cope, you follow the <span>{{</span><span>name of scope element</span><span>}}</span> paradigm, as in this example: <span>{{</span><span>pageLiterals.title</span><span>}}</span><br />
+    To bind an input field (or other HTML tag) to the same item, you can use the ng-model/data-ng-model attribute, as in <span><</span><span>input type="text" data-ng-model="pageLiterals.title"</span><span>/></span>.</div>
+Title: <input type="text" data-ng-model="pageLiterals.title" /><br />
+Value of pageLiterals.title property in scope: {{pageLiterals.title}}<br /><br />
+
+<h4>Sample 2: Using a repeater to render data <span class="plus" ng-click="toggleText(2)" title="Toggle help text">[&nbsp;+&nbsp;]</span></h4>
+<div class="smallText" ng-show="getShowText(2)">
+    Angular comes with a lot of pre-built directives (HTML extensions that define behavior for that tag), 
+    much like the <span>data-ng-model</span> attribute shown in the previous sample.<br /><br />
+    <span>ng-repeat</span> allows you to loop through a collection, providing access to the scope of the individual 
+    element in that collection. In this case, the collection (<span>sampleObject</span>) is a hardcoded value defined 
+    in the controller.
+</div>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Grade</th>
+    </tr>
+    <tr data-ng-repeat="item in sampleObject">
+        <td>{{item.name}}</td>
+        <td>{{item.grade}}</td>
+    </tr>
+</table>
+<br /><br />
+
+<h4>Sample 3: Using a filter to limit results <span class="plus" ng-click="toggleText(3)" title="Toggle help text">[&nbsp;+&nbsp;]</span></h4>
+<div class="smallText" ng-show="getShowText(3)">
+    Angular filters format data for display to the user.<br /><br />
+    As seen below, Angular comes with a bunch of built-in filters, such as the <span>uppercase</span> filter or the <span>orderBy:value</span> filter.<br />This example takes the repeater from sample 2, and
+    attaches a filter to it that uses the input field's value and is applied to the name property of the sampleObject.
+</div>
+Name search: <input type="text" data-ng-model="searchValue" />
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Grade</th>
+    </tr>
+    <tr data-ng-repeat="item in sampleObject | filter:{name:searchValue}">
+        <td>{{item.name}}</td>
+        <td>{{item.grade}}</td>
+    </tr>
+</table>
+<br /><br />
+
+<h4>Sample 4: A custom filter <span class="plus" ng-click="toggleText(4)" title="Toggle help text">[&nbsp;+&nbsp;]</span></h4>
+<div class="smallText" ng-show="getShowText(4)">
+    Here is a very simple example of a custom filter. This filter just takes the input field's value and alternates capitalization.
+</div>
+Enter text here: <input type="text" data-ng-model="textForCustomFilter" placeholder="enter text here" /><br />
+Output: {{textForCustomFilter | sillyCaps}}
+<br /><br />
+
+<h4>Sample 5: Outputting data retrieved by a service <span class="plus" ng-click="toggleText(5)" title="Toggle help text">[&nbsp;+&nbsp;]</span></h4>
+<div class="smallText" ng-show="getShowText(5)">
+    As with the example above, the below sample is using the <span>ng-repeat</span> directive to iterate through a collection of items. The difference here
+    is that the data in question, instead of being hardcoded in the sampleController, is being retrieved by that controller from a service. The page doesn't really
+    care where the data comes from... as long as it's bound to the scope, the page can access it.<br /><br />
+    Note: We are also using a built-in filter to re-order the results in the <span>ng-repeat</span>, as well as a filter to uppercase the <span>item.value</span> literal
+    output.
+</div>
+<ul>
+    <li data-ng-repeat="item in objectFromService | orderBy:'value'">{{item.value | uppercase}}</li>
+</ul>
+<br />
+
+<h4>Sample 6: Using a custom directive <span class="plus" ng-click="toggleText(6)" title="Toggle help text">[&nbsp;+&nbsp;]</span></h4>
+<div class="smallText" ng-show="getShowText(6)">
+    As stated above, a directive is essentially a way in which angular can expand standard HTML, either as a new tag, an attribute of existing tags, a class
+    or even a comment. In each case, the purpose of a directive is to inform the browser what behavior is expected from the given tag. We've already seen how
+    this works, using the <span>ngRepeat</span> and <span>ngModel</span> directives.<br /><br />Here is a very simple example of a custom directive.
+</div>
+Enter text here: <input type="text" data-ng-model="textForDirective" /><br />
+<div blue-and-big data-ng-model="textForDirective"></div>
+

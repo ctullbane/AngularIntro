@@ -1,0 +1,64 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.grid-style {
+    border: 1px solid rgb(212,212,212);
+    min-height: 250px;
+    max-height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.user-details {
+    margin-top: 50px;
+}
+
+.gender-text {
+    margin: 0 5px;
+    vertical-align: sub;
+}
+
+.pageDetails {
+    display:block;
+    font-size:-0.5em;
+    background-color:#eeeeee;
+    padding:5px;
+    
+}
+
+table {
+    width: 500px;
+}
+
+.smallText {
+    display: block;
+    font-size:9pt;
+    background-color:#eeeeee;
+    margin:5px;
+    padding:5px;
+}
+
+.smallText span {
+    font-weight:bold;
+    font-style:italic;
+}
+
+textarea {
+    width: 500px;
+    height:75px;
+    padding:0px;
+}
+
+.plus {
+    cursor:pointer;
+    padding:2px;
+    margin:2px;
+    font-size:8pt;
+    vertical-align:top;
+}
+
+.plus:hover {
+    color: red;
+}
